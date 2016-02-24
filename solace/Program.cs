@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace solace
 {
@@ -51,8 +48,21 @@ namespace solace
             skills["scholarship"] = 19;
             skills["athletics"] = 20;
 
+            int testmax = 500;
+            int testvalue = 10;
+            double testmod = -46.5;
             Character aphyxia = new Character(core);
 
+            aphyxia.setValue("stats", "strength", 10);
+            Console.Write("Stats should be 10: " + testvalue + " and is: " + aphyxia.getValue("stats","strength") + "\n");
+
+            aphyxia.setMaxHealth(500);
+            Console.Write("Max health should be: " + testmax + " and is: " + aphyxia.getMaxHealth() + "\n");
+
+            aphyxia.modHealth(-46.5);
+            Console.Write("Current health should be: " + (testmax + testmod) + " and is: " + aphyxia.getHealth() + "\n");
+
+            Console.Read();
 
         }
     }
