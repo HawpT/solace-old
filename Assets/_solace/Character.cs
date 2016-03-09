@@ -12,28 +12,30 @@ namespace solace
         private int level;
         private double health, maxHealth;
         private string name;
+        public static Dictionary<string,Character> allCharacters;
+        
 
-        //default constuctor
-        public Character()
+
+        /*
+        * CONSTRUCTORS
+        */
+        //static constructor
+        static Character()
         {
-            coreDict = new Dictionary<string, Dictionary<string, int>>();
-            name = "Not Named";
-            health = 10;
+            //max player character count limited to 10
+            allCharacters = new Dictionary<string, Character>();
         }
 
+        //default constuctor
         public Character(string newName)
         {
             name = newName;
             coreDict = new Dictionary<string, Dictionary<string, int>>();
             health = 10;
-        }
-
-        //overloaded constuctor for pre-built dictionaries
-        public Character(Dictionary<string, Dictionary<string, int>> importedDict)
-        {
-            coreDict = importedDict;
-            name = "Not Named";
-            health = 10;
+            if (allCharacters[name] != null)
+                Console.WriteLine("Character with that name already exists!");
+            else
+                allCharacters[name] = this;
         }
 
         public Character(Dictionary<string, Dictionary<string, int>> importedDict, string newName)
@@ -41,8 +43,15 @@ namespace solace
             coreDict = importedDict;
             name = newName;
             health = 10;
+            if (allCharacters[name] != null)
+                Console.WriteLine("Character with that name already exists!");
+            else
+                allCharacters[name] = this;
         }
 
+        /*
+        * ACCESSORS
+        */
         //accessor for all attribute names
         public string[] getAttributeTypes(){ return attributes; } 
 
@@ -84,6 +93,10 @@ namespace solace
         //accessor for max health
         public double getMaxHealth() { return maxHealth; }
 
+
+        /*
+        * MUTATORS
+        */
         //mutator for single values given a category and attribute name
         public void setValue(string category, string attribute, int newValue) { (coreDict[category])[attribute] = newValue; return; }
 
@@ -100,11 +113,29 @@ namespace solace
         //mutator for changing a characters max health
         public void setMaxHealth(double newMaxHealth) { maxHealth = newMaxHealth; }
 
+
+        /*
+        * METHODS
+        *
+        public void takeAction(GameAction action)
+        {
+            takeAction(action, this);
+        }
+
+        public void takeAction(GameAction action, Character targetOfAction)
+        {
+
+        }
+        /**/
+         
+
+       
         //overrided tostring
         public override string ToString()
         {
             return "Character name: " + name + "\nCharacter level: " + level;
         }
+
 
     }
 }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace solace
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.Write("Fill Character with test info. ");
 
