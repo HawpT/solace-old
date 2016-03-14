@@ -2,15 +2,25 @@
 using solace;
 using System.Collections.Generic;
 using System;
+using UnityEngine.UI;
 
 public class DefaultCharacterBehavior : MonoBehaviour {
     private Character charObject;
     private Ray ray;
     private RaycastHit hit;
+    public string characterName;
+    public static Dictionary 
+    //make script listen for character creation
     
 
-	// Use this for initialization
-	void Start () {
+
+    private void setCharName(string newName)
+    {
+
+    }
+
+    // Use this for initialization
+    void Start () {
 
         //Test values
         Dictionary<string, int> stats = new Dictionary<string, int>();
@@ -22,38 +32,38 @@ public class DefaultCharacterBehavior : MonoBehaviour {
         core["skills"] = skills;
 
         //populate the stats dict
-        stats["strength"] = 0;
-        stats["agility"] = 1;
-        stats["prana"] = 2;
+        stats["strength"] = 3;
+        stats["agility"] = 3;
+        stats["prana"] = 3;
         stats["intelligence"] = 3;
-        stats["constitution"] = 4;
-        stats["charisma"] = 5;
-        stats["perception"] = 6;
+        stats["constitution"] = 3;
+        stats["charisma"] = 3;
+        stats["perception"] = 3;
 
         //populate the skills dict
-        skills["melee"] = 0;
-        skills["marksmanship"] = 1;
-        skills["sorcery"] = 2;
+        skills["melee"] = 3;
+        skills["marksmanship"] = 3;
+        skills["sorcery"] = 3;
         skills["empathy"] = 3;
-        skills["engineering"] = 4;
-        skills["smithing"] = 5;
-        skills["trade"] = 6;
-        skills["fortitude"] = 7;
-        skills["piloting"] = 8;
-        skills["ride"] = 9;
-        skills["stealth"] = 10;
-        skills["survival"] = 11;
-        skills["tactics"] = 12;
-        skills["resilience"] = 13;
-        skills["performance"] = 14;
-        skills["intimidate"] = 15;
-        skills["persuasion"] = 17;
-        skills["secondsight"] = 18;
-        skills["scholarship"] = 19;
-        skills["athletics"] = 20;
+        skills["engineering"] = 3;
+        skills["smithing"] = 3;
+        skills["trade"] = 3;
+        skills["fortitude"] = 3;
+        skills["piloting"] = 3;
+        skills["ride"] = 3;
+        skills["stealth"] = 3;
+        skills["survival"] = 3;
+        skills["tactics"] = 3;
+        skills["resilience"] = 3;
+        skills["performance"] = 3;
+        skills["intimidate"] = 3;
+        skills["persuasion"] = 3;
+        skills["secondsight"] = 3;
+        skills["scholarship"] = 3;
+        skills["athletics"] = 3;
 
         //create the Character object
-        charObject = new Character(core,"Aphyxia");
+        charObject = new Character(core);
         Debug.Log("Character successfully Created");
 	}
 	

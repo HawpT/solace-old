@@ -11,11 +11,8 @@ namespace solace
         private string[] attributes;
         private int level;
         private double health, maxHealth;
-        private string name;
         public static Dictionary<string,Character> allCharacters;
         
-
-
         /*
         * CONSTRUCTORS
         */
@@ -27,26 +24,16 @@ namespace solace
         }
 
         //default constuctor
-        public Character(string newName)
+        public Character()
         {
-            name = newName;
             coreDict = new Dictionary<string, Dictionary<string, int>>();
             health = 10;
-            if (allCharacters[name] != null)
-                Console.WriteLine("Character with that name already exists!");
-            else
-                allCharacters[name] = this;
         }
 
-        public Character(Dictionary<string, Dictionary<string, int>> importedDict, string newName)
+        public Character(Dictionary<string, Dictionary<string, int>> importedDict)
         {
             coreDict = importedDict;
-            name = newName;
             health = 10;
-            if (allCharacters[name] != null)
-                Console.WriteLine("Character with that name already exists!");
-            else
-                allCharacters[name] = this;
         }
 
         /*
@@ -84,9 +71,6 @@ namespace solace
             }
         }
         
-        //accessor for character name
-        public string getName() { return name; }
-
         //accessor for current health
         public double getHealth() { return health; }
 
@@ -133,7 +117,7 @@ namespace solace
         //overrided tostring
         public override string ToString()
         {
-            return "Character name: " + name + "\nCharacter level: " + level;
+            return "\nCharacter level: " + level;
         }
 
 
